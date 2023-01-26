@@ -1,6 +1,8 @@
 name: github.action
 channels:
-  - default
+    - default
+    - https://conda.anaconda.org/conda-forge/
+    - https://conda.anaconda.org/joshburt/
 dependencies:
   - anaconda-project
   - conda-build
