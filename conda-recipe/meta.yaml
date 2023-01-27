@@ -1,0 +1,31 @@
+{% set name = "anaconda.mlflow.tracking.sdk" %}
+{% set version = "0.10.0" %}
+
+package:
+  name: "{{ name|lower }}"
+  version: "{{ version }}"
+
+source:
+  path: ../
+
+build:
+  number: 0
+  noarch: python
+  script:
+    - {{ PYTHON }} -m pip install . --no-deps --ignore-installed -vv
+
+requirements:
+  host:
+    - python>=3.8
+    - setuptools
+  run:
+    - python>=3.8
+    - mlflow>=2.0.1
+    - anaconda.enterprise.server.contracts>=0.8
+    - anaconda.enterprise.server.common.sdk>=0.4.5
+
+about:
+  home: https://github.com/Anaconda-Platform/anaconda-mlflow-tracking-sdk
+  summary: "Anaconda MLFlow Tracking SDK"
+  license: BSD
+  license_file: LICENSE

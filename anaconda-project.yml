@@ -1,0 +1,97 @@
+name: anaconda-mlflow-tracking-sdk
+description: Anaconda MLFlow Tracking Server SDK
+
+variables:
+  # These are defined for development (and testing)
+  MLFLOW_TRACKING_URI: http://0.0.0.0:5000/
+  MLFLOW_REGISTRY_URI: http://0.0.0.0:5000/
+  MLFLOW_BACKEND_STORE_URI: sqlite:///test/fixtures/mlflow/local/store/mydb.sqlite
+  MLFLOW_ARTIFACTS_DESTINATION: test/fixtures/mlflow/local/artifacts
+  MLFLOW_DEFAULT_ARTIFACT_ROOT: mlflow-artifacts:/
+
+commands:
+  #
+  # Development Time Commands
+  #
+
+  bash:
+    env_spec: default
+    unix: bash
+
+  test:unit:
+    env_spec: default
+    unix: coverage run --append --rcfile=.coveragerc -m unittest discover test/unit/anaconda/mlflow/tracking/sdk
+
+  coverage:
+    env_spec: default
+    unix: |
+      coverage report
+      coverage html
+      coverage xml
+
+  test:integration:
+    env_spec: default
+    unix: python -m unittest discover test/integration
+
+  clean:
+    env_spec: default
+    unix: |
+      rm -rf .coverage htmlcov coverage.xml build docs/build
+
+  lint:
+    env_spec: default
+    unix: |
+      pylint src
+      isort --check --diff .
+      black --line-length=120 --target-version=py310 --check --diff .
+
+  lint:fix:
+    env_spec: default
+    unix: |
+      isort .
+      black --line-length=120 --target-version=py310 .
+
+  server:
+    env_spec: default
+    unix: |
+      mlflow server --serve-artifacts
+
+  build:apidocs:
+    env_spec: default
+    unix: |
+      sphinx-apidoc -f -o docs/source/api src/anaconda/mlflow/tracking/sdk
+
+  build:docs:
+    env_spec: default
+    unix: |
+      cd docs && make clean && make html
+
+channels:
+    - default
+    - https://conda.anaconda.org/conda-forge/
+    - https://conda.anaconda.org/joshburt/
+
+platforms:
+  - linux-64
+  - osx-64
+  - osx-arm64
+  - win-64
+
+env_specs:
+  default:
+    description: Development Environment
+    packages:
+      - python=3.8.15
+      - mlflow=2.0.1
+      - ipykernel
+      - isort
+      - black
+      - black-jupyter
+      - pylint
+      - coverage
+      - pyyaml
+      - requests
+      - sphinx
+      - sphinx-rtd-theme
+      - anaconda.enterprise.server.contracts>=0.8
+      - anaconda.enterprise.server.common.sdk>=0.4.5

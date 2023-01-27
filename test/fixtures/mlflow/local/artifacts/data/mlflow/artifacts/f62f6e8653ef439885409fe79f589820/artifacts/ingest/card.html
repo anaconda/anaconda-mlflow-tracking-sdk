@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Ingest@regression</title>
+        <style>
+            h1.title {
+            color: #4287f5;
+            }
+            h2.step-title {
+                color : #4287f5;
+            }
+            .tab {
+                overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;
+            }
+
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+            }
+
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            .tab button.active {
+                background-color: #ccc;
+            }
+
+            .tabcontent {
+                display: block;
+                padding: 6px 12px;
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+
+            .content-hide {
+                display: none;
+            }
+
+            .content-active {
+                display: block;
+            }
+            h3.section-title {
+                color: #57a8de;
+            }
+            .dataset-container {
+                width: max;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .stacktrace-container {
+                max-height: 300px;
+                overflow: auto;
+                display: flex;
+                flex-direction: column-reverse;
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+   <body>
+        <div class="tab">
+            <div class="button-container-lxj02g">
+                
+                    <button id=0 class="tablink-lxj02g">
+                        Data Profile
+                    </button>
+                
+                    <button id=1 class="tablink-lxj02g">
+                        Data Schema
+                    </button>
+                
+                    <button id=2 class="tablink-lxj02g">
+                        Data Preview
+                    </button>
+                
+                    <button id=3 class="tablink-lxj02g">
+                        Run Summary
+                    </button>
+                
+            </div>
+        </div>
+        <div class="tabcontent">
+            
+                <div class="content-lxj02g content-hide"><iframe srcdoc='
+        &lt;div style=&quot;background-color: white&quot;&gt;
+        &lt;script&gt;!function(){let t=window.URL;window.URL=function(n,e){return&quot;string&quot;==typeof e&amp;&amp;e.startsWith(&quot;blob:&quot;)?new URL(e):new t(n,e)}}();&lt;/script&gt;
+        &lt;script src=&quot;https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.3.3/webcomponents-lite.js&quot;&gt;&lt;/script&gt;
+        &lt;link rel=&quot;import&quot; href=&quot;https://raw.githubusercontent.com/PAIR-code/facets/1.0.0/facets-dist/facets-jupyter.html&quot; &gt;
+        &lt;facets-overview id=&quot;facets&quot; proto-input=&quot;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&quot; compare-mode=&quot;True&quot;&gt;&lt;/facets-overview&gt;
+        &lt;/div&gt;
+    ' width='100%' height='500' frameborder='0'></iframe></div>
+            
+                <div class="content-lxj02g content-hide"><div style="max-height: 500px; overflow: scroll;"><style type="text/css">
+#T_7d506 table {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_7d506  th {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_7d506  td {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+</style>
+<table id="T_7d506" style="border-collapse:collapse">
+  <thead>
+    <tr>
+      <th id="T_7d506_level0_col0" class="col_heading level0 col0" >name</th>
+      <th id="T_7d506_level0_col1" class="col_heading level0 col1" >type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_7d506_row0_col0" class="data row0 col0" >tpep_pickup_datetime</td>
+      <td id="T_7d506_row0_col1" class="data row0 col1" >datetime</td>
+    </tr>
+    <tr>
+      <td id="T_7d506_row1_col0" class="data row1 col0" >tpep_dropoff_datetime</td>
+      <td id="T_7d506_row1_col1" class="data row1 col1" >datetime</td>
+    </tr>
+    <tr>
+      <td id="T_7d506_row2_col0" class="data row2 col0" >trip_distance</td>
+      <td id="T_7d506_row2_col1" class="data row2 col1" >number</td>
+    </tr>
+    <tr>
+      <td id="T_7d506_row3_col0" class="data row3 col0" >fare_amount</td>
+      <td id="T_7d506_row3_col1" class="data row3 col1" >number</td>
+    </tr>
+    <tr>
+      <td id="T_7d506_row4_col0" class="data row4 col0" >pickup_zip</td>
+      <td id="T_7d506_row4_col1" class="data row4 col1" >integer</td>
+    </tr>
+    <tr>
+      <td id="T_7d506_row5_col0" class="data row5 col0" >dropoff_zip</td>
+      <td id="T_7d506_row5_col1" class="data row5 col1" >integer</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+            
+                <div class="content-lxj02g content-hide"><div style="max-height: 500px; overflow: scroll;"><style type="text/css">
+#T_233ac table {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_233ac  th {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+#T_233ac  td {
+  border: 1px solid grey;
+  text-align: left;
+  padding: 5px;
+}
+</style>
+<table id="T_233ac" style="border-collapse:collapse">
+  <thead>
+    <tr>
+      <th id="T_233ac_level0_col0" class="col_heading level0 col0" >tpep_pickup_datetime</th>
+      <th id="T_233ac_level0_col1" class="col_heading level0 col1" >tpep_dropoff_datetime</th>
+      <th id="T_233ac_level0_col2" class="col_heading level0 col2" >trip_distance</th>
+      <th id="T_233ac_level0_col3" class="col_heading level0 col3" >fare_amount</th>
+      <th id="T_233ac_level0_col4" class="col_heading level0 col4" >pickup_zip</th>
+      <th id="T_233ac_level0_col5" class="col_heading level0 col5" >dropoff_zip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td id="T_233ac_row0_col0" class="data row0 col0" >2016-02-13 21:47:53</td>
+      <td id="T_233ac_row0_col1" class="data row0 col1" >2016-02-13 21:57:15</td>
+      <td id="T_233ac_row0_col2" class="data row0 col2" >1.400000</td>
+      <td id="T_233ac_row0_col3" class="data row0 col3" >8.000000</td>
+      <td id="T_233ac_row0_col4" class="data row0 col4" >10103</td>
+      <td id="T_233ac_row0_col5" class="data row0 col5" >10110</td>
+    </tr>
+    <tr>
+      <td id="T_233ac_row1_col0" class="data row1 col0" >2016-02-13 18:29:09</td>
+      <td id="T_233ac_row1_col1" class="data row1 col1" >2016-02-13 18:37:23</td>
+      <td id="T_233ac_row1_col2" class="data row1 col2" >1.310000</td>
+      <td id="T_233ac_row1_col3" class="data row1 col3" >7.500000</td>
+      <td id="T_233ac_row1_col4" class="data row1 col4" >10023</td>
+      <td id="T_233ac_row1_col5" class="data row1 col5" >10023</td>
+    </tr>
+    <tr>
+      <td id="T_233ac_row2_col0" class="data row2 col0" >2016-02-06 19:40:58</td>
+      <td id="T_233ac_row2_col1" class="data row2 col1" >2016-02-06 19:52:32</td>
+      <td id="T_233ac_row2_col2" class="data row2 col2" >1.800000</td>
+      <td id="T_233ac_row2_col3" class="data row2 col3" >9.500000</td>
+      <td id="T_233ac_row2_col4" class="data row2 col4" >10001</td>
+      <td id="T_233ac_row2_col5" class="data row2 col5" >10018</td>
+    </tr>
+    <tr>
+      <td id="T_233ac_row3_col0" class="data row3 col0" >2016-02-12 19:06:43</td>
+      <td id="T_233ac_row3_col1" class="data row3 col1" >2016-02-12 19:20:54</td>
+      <td id="T_233ac_row3_col2" class="data row3 col2" >2.300000</td>
+      <td id="T_233ac_row3_col3" class="data row3 col3" >11.500000</td>
+      <td id="T_233ac_row3_col4" class="data row3 col4" >10044</td>
+      <td id="T_233ac_row3_col5" class="data row3 col5" >10111</td>
+    </tr>
+    <tr>
+      <td id="T_233ac_row4_col0" class="data row4 col0" >2016-02-23 10:27:56</td>
+      <td id="T_233ac_row4_col1" class="data row4 col1" >2016-02-23 10:58:33</td>
+      <td id="T_233ac_row4_col2" class="data row4 col2" >2.600000</td>
+      <td id="T_233ac_row4_col3" class="data row4 col3" >18.500000</td>
+      <td id="T_233ac_row4_col4" class="data row4 col4" >10199</td>
+      <td id="T_233ac_row4_col5" class="data row4 col5" >10022</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+            
+                <div class="content-lxj02g content-hide"><p><strong>Number of rows ingested:</strong> <code>10000</code></p><p><strong>Dataset source location:</strong> <code>['/Users/joshburt/Workbench/Repositories/recipes-examples/regression/data/sample.parquet']</code></p><p><strong>Run duration (s)</strong>: 3.23</p><p><strong>Last updated:</strong> 2022-12-16 13:03:39</p></div>
+            
+        </div>
+        <script>
+            function onclickTab(event) {
+                 const tablinks = document.getElementsByClassName("tablink-lxj02g");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace("active", "");
+                }
+                event.target.classList.add("active");
+
+                const tabId = event.target.id;
+                const tabContents = document.getElementsByClassName("content-lxj02g");
+                for (i = 0; i < tabContents.length; i++) {
+                    tabContents[i].className = tabContents[i].className.replace("content-active", "content-hide");
+                }
+                tabContents[tabId].classList.add("content-active");
+            }
+            (function() {
+                const buttonsContainer = document.getElementsByClassName("button-container-lxj02g")[0]
+                buttonsContainer.addEventListener("click", onclickTab);
+
+                const tablinks = document.getElementsByClassName("tablink-lxj02g");
+                tablinks[0].classList.add("active");
+                const tabContents = document.getElementsByClassName("content-lxj02g");
+                tabContents[0].classList.add("content-active");
+            })()
+        </script>
+   </body>
+</html>

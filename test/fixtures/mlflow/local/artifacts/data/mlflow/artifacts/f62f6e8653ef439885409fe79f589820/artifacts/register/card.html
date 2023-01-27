@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Register@regression</title>
+        <style>
+            h1.title {
+            color: #4287f5;
+            }
+            h2.step-title {
+                color : #4287f5;
+            }
+            .tab {
+                overflow: hidden;
+                border: 1px solid #ccc;
+                background-color: #f1f1f1;
+            }
+
+            .tab button {
+                background-color: inherit;
+                float: left;
+                border: none;
+                outline: none;
+                cursor: pointer;
+                padding: 14px 16px;
+                transition: 0.3s;
+            }
+
+            .tab button:hover {
+                background-color: #ddd;
+            }
+
+            .tab button.active {
+                background-color: #ccc;
+            }
+
+            .tabcontent {
+                display: block;
+                padding: 6px 12px;
+                border: 1px solid #ccc;
+                border-top: none;
+            }
+
+            .content-hide {
+                display: none;
+            }
+
+            .content-active {
+                display: block;
+            }
+            h3.section-title {
+                color: #57a8de;
+            }
+            .dataset-container {
+                width: max;
+                overflow-x: auto;
+                white-space: nowrap;
+            }
+            .stacktrace-container {
+                max-height: 300px;
+                overflow: auto;
+                display: flex;
+                flex-direction: column-reverse;
+                white-space: pre-wrap;
+            }
+        </style>
+    </head>
+   <body>
+        <div class="tab">
+            <div class="button-container-u6fpjg">
+                
+                    <button id=0 class="tablink-u6fpjg">
+                        Run Summary
+                    </button>
+                
+            </div>
+        </div>
+        <div class="tabcontent">
+            
+                <div class="content-u6fpjg content-hide"><p><strong>Model Name:</strong> <code>taxi_fare_regressor</code></p><p><strong>Model Version:</strong> <code>1</code></p><p><strong>Model Source URI:</strong> <code>runs:/f62f6e8653ef439885409fe79f589820/train/model</code></p></div>
+            
+        </div>
+        <script>
+            function onclickTab(event) {
+                 const tablinks = document.getElementsByClassName("tablink-u6fpjg");
+                for (i = 0; i < tablinks.length; i++) {
+                    tablinks[i].className = tablinks[i].className.replace("active", "");
+                }
+                event.target.classList.add("active");
+
+                const tabId = event.target.id;
+                const tabContents = document.getElementsByClassName("content-u6fpjg");
+                for (i = 0; i < tabContents.length; i++) {
+                    tabContents[i].className = tabContents[i].className.replace("content-active", "content-hide");
+                }
+                tabContents[tabId].classList.add("content-active");
+            }
+            (function() {
+                const buttonsContainer = document.getElementsByClassName("button-container-u6fpjg")[0]
+                buttonsContainer.addEventListener("click", onclickTab);
+
+                const tablinks = document.getElementsByClassName("tablink-u6fpjg");
+                tablinks[0].classList.add("active");
+                const tabContents = document.getElementsByClassName("content-u6fpjg");
+                tabContents[0].classList.add("content-active");
+            })()
+        </script>
+   </body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anaconda MLFlow Tracking Client &mdash; Anaconda MLFlow Tracking SDK 0.10.0 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Anaconda MLFlow Tracking SDK" href="../index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> Anaconda MLFlow Tracking SDK
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Anaconda MLFlow Tracking Client</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#client.AnacondaMlFlowClient"><code class="docutils literal notranslate"><span class="pre">AnacondaMlFlowClient</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#client.AnacondaMlFlowClient.client"><code class="docutils literal notranslate"><span class="pre">AnacondaMlFlowClient.client</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">AnacondaMlFlowClient.client</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client.AnacondaMlFlowClient.get_experiment_runs"><code class="docutils literal notranslate"><span class="pre">AnacondaMlFlowClient.get_experiment_runs()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client.AnacondaMlFlowClient.get_experiments"><code class="docutils literal notranslate"><span class="pre">AnacondaMlFlowClient.get_experiments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client.AnacondaMlFlowClient.get_model_versions"><code class="docutils literal notranslate"><span class="pre">AnacondaMlFlowClient.get_model_versions()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client.AnacondaMlFlowClient.get_registered_models"><code class="docutils literal notranslate"><span class="pre">AnacondaMlFlowClient.get_registered_models()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client.AnacondaMlFlowClient.load_model_by_run"><code class="docutils literal notranslate"><span class="pre">AnacondaMlFlowClient.load_model_by_run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client.AnacondaMlFlowClient.load_model_by_stage"><code class="docutils literal notranslate"><span class="pre">AnacondaMlFlowClient.load_model_by_stage()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#client.AnacondaMlFlowClient.load_model_by_version"><code class="docutils literal notranslate"><span class="pre">AnacondaMlFlowClient.load_model_by_version()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#module-factory">Anaconda MLFlow Tracking Factory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#factory.build_mlflow_client"><code class="docutils literal notranslate"><span class="pre">build_mlflow_client()</span></code></a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Anaconda MLFlow Tracking SDK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Anaconda MLFlow Tracking Client</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/api/sdk.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-client">
+<span id="anaconda-mlflow-tracking-client"></span><h1>Anaconda MLFlow Tracking Client<a class="headerlink" href="#module-client" title="Permalink to this heading"></a></h1>
+<p>This module provides an interface for MLFlow Tracking Operations.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="client.AnacondaMlFlowClient">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">client.</span></span><span class="sig-name descname"><span class="pre">AnacondaMlFlowClient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">MlflowClient</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#client.AnacondaMlFlowClient" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></p>
+<p>This class provides an interface for interacting with the MLFlow Tracking Server.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="client.AnacondaMlFlowClient.client">
+<span class="sig-name descname"><span class="pre">client</span></span><a class="headerlink" href="#client.AnacondaMlFlowClient.client" title="Permalink to this definition"></a></dt>
+<dd><p>An instance of a raw mlflow client.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type</dt>
+<dd class="field-odd"><p>MlflowClient</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="id0">
+<span class="sig-name descname"><span class="pre">client</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">MlflowClient</span></em><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="client.AnacondaMlFlowClient.get_experiment_runs">
+<span class="sig-name descname"><span class="pre">get_experiment_runs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">experiment_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Run</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#client.AnacondaMlFlowClient.get_experiment_runs" title="Permalink to this definition"></a></dt>
+<dd><p>Consumes the paged MLFlow runs API and returns a consolidated list of found runs.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>experiments</strong> – A list of <cite>Run</cite> objects found from the search.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list[Run]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="client.AnacondaMlFlowClient.get_experiments">
+<span class="sig-name descname"><span class="pre">get_experiments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">Experiment</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#client.AnacondaMlFlowClient.get_experiments" title="Permalink to this definition"></a></dt>
+<dd><p>Consumes the paged MLFlow experiments API and returns a consolidated list of found experiments.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>experiments</strong> – A list of <cite>Experiment</cite> objects found from the search.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list[Experiment]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="client.AnacondaMlFlowClient.get_model_versions">
+<span class="sig-name descname"><span class="pre">get_model_versions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PagedList</span><span class="p"><span class="pre">[</span></span><span class="pre">ModelVersion</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#client.AnacondaMlFlowClient.get_model_versions" title="Permalink to this definition"></a></dt>
+<dd><p>Returns all model versions for the specified model name.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>model_name</strong> (<em>str</em>) – The model name.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>versions</strong> – A paged list of all model versions for the specified model.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>PagedList[ModelVersion]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="client.AnacondaMlFlowClient.get_registered_models">
+<span class="sig-name descname"><span class="pre">get_registered_models</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">RegisteredModel</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#client.AnacondaMlFlowClient.get_registered_models" title="Permalink to this definition"></a></dt>
+<dd><p>Returns all registered models.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>models</strong> – A list of registered models.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list[RegisteredModel]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="client.AnacondaMlFlowClient.load_model_by_run">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_model_by_run</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">logged_model_rui</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PyFuncModel</span></span></span><a class="headerlink" href="#client.AnacondaMlFlowClient.load_model_by_run" title="Permalink to this definition"></a></dt>
+<dd><p>Loads a tracked model from the provided URI.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>logged_model_rui</strong> (<em>Complete MLFlow Tracking Server Model URI</em>) – </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>model</strong> – Returns a python function based MLFlow model.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>PyFuncModel</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="client.AnacondaMlFlowClient.load_model_by_stage">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_model_by_stage</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PyFuncModel</span></span></span><a class="headerlink" href="#client.AnacondaMlFlowClient.load_model_by_stage" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a URL to load the model by stage and returns the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>Name</em><em> of </em><em>the model.</em>) – </p></li>
+<li><p><strong>stage</strong> (<em>The model stage.</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>model</strong> – Returns a python function based MLFlow model.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>PyFuncModel</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="client.AnacondaMlFlowClient.load_model_by_version">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_model_by_version</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">version</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">PyFuncModel</span></span></span><a class="headerlink" href="#client.AnacondaMlFlowClient.load_model_by_version" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a URL to load the model by version and returns the model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> (<em>Name</em><em> of </em><em>the model.</em>) – </p></li>
+<li><p><strong>version</strong> (<em>The model version.</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><strong>model</strong> – Returns a python function based MLFlow model.</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>PyFuncModel</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-factory">
+<span id="anaconda-mlflow-tracking-factory"></span><h1>Anaconda MLFlow Tracking Factory<a class="headerlink" href="#module-factory" title="Permalink to this heading"></a></h1>
+<p>Helper factory functions</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="factory.build_mlflow_client">
+<span class="sig-prename descclassname"><span class="pre">factory.</span></span><span class="sig-name descname"><span class="pre">build_mlflow_client</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">MlflowClient</span></span></span><a class="headerlink" href="#factory.build_mlflow_client" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs a mlflow client with our globally controlled configuration options.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p><strong>client</strong> – Instance of an MlflowClient.</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>MlflowClient</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../index.html" class="btn btn-neutral float-left" title="Anaconda MLFlow Tracking SDK" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright Anaconda, Inc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,25 @@
+artifact_path: train/model
+flavors:
+  python_function:
+    code: code
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.10.8
+  sklearn:
+    code: code
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.1.3
+mlflow_version: 2.0.1
+model_uuid: 45ef074d9ab84fdb9fdeebca4bfc887b
+run_id: f62f6e8653ef439885409fe79f589820
+signature:
+  inputs: '[{"name": "tpep_pickup_datetime", "type": "datetime"}, {"name": "tpep_dropoff_datetime",
+    "type": "datetime"}, {"name": "trip_distance", "type": "double"}, {"name": "pickup_zip",
+    "type": "integer"}, {"name": "dropoff_zip", "type": "integer"}]'
+  outputs: '[{"type": "tensor", "tensor-spec": {"dtype": "float64", "shape": [-1]}}]'
+utc_time_created: '2022-12-16 21:04:00.289583'
