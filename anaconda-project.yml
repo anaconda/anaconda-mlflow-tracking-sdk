@@ -67,7 +67,7 @@ commands:
       cd docs && make clean && make html
 
 channels:
-    - default
+    - defaults
     - https://conda.anaconda.org/conda-forge/
     - https://conda.anaconda.org/joshburt/
 
@@ -93,5 +93,5 @@ env_specs:
       - requests
       - sphinx
       - sphinx-rtd-theme
-      - anaconda.enterprise.server.contracts>=0.8
-      - anaconda.enterprise.server.common.sdk>=0.4.5
+      - anaconda.enterprise.server.contracts>=0.8.2
+      - anaconda.enterprise.server.common.sdk>=0.4.7
