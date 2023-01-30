@@ -21,8 +21,8 @@ requirements:
   run:
     - python>=3.8
     - mlflow>=2.0.1
-    - anaconda.enterprise.server.contracts>=0.8.2
-    - anaconda.enterprise.server.common.sdk>=0.4.7
+    - anaconda.enterprise.server.contracts>=0.8.3
+    - anaconda.enterprise.server.common.sdk>=0.4.8
 
 about:
   home: https://github.com/Anaconda-Platform/anaconda-mlflow-tracking-sdk
