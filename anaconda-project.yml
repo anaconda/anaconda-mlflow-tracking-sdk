@@ -93,5 +93,5 @@ env_specs:
       - requests
       - sphinx
       - sphinx-rtd-theme
-      - anaconda.enterprise.server.contracts>=0.8.2
-      - anaconda.enterprise.server.common.sdk>=0.4.7
+      - anaconda.enterprise.server.contracts>=0.8.3
+      - anaconda.enterprise.server.common.sdk>=0.4.8
