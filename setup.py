@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="anaconda.mlflow.tracking.sdk",
-    version="0.10.2",
+    version="0.10.3",
     package_dir={"": "src"},
     packages=setuptools.find_namespace_packages(where="src"),
     author="Joshua C. Burt",

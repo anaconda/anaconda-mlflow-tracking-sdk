@@ -14,7 +14,7 @@ sys.path.insert(0, os.path.abspath("../../src/anaconda/mlflow/tracking/sdk"))
 project = "Anaconda MLFlow Tracking SDK"
 copyright = "Anaconda, Inc"
 author = "Joshua C. Burt"
-release = "0.10.2"
+release = "0.10.3"
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
