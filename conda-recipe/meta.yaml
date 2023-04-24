@@ -1,5 +1,5 @@
 {% set name = "anaconda.mlflow.tracking.sdk" %}
-{% set version = "0.10.3" %}
+{% set version = "0.11.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -22,7 +22,7 @@ requirements:
     - python>=3.8
     - mlflow>=2.0.1
     - anaconda.enterprise.server.contracts>=0.8.3
-    - anaconda.enterprise.server.common.sdk>=0.4.8
+    - ae5-tools>=0.6.1
 
 about:
   home: https://github.com/Anaconda-Platform/anaconda-mlflow-tracking-sdk

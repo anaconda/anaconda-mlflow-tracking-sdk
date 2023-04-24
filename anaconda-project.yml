@@ -67,8 +67,8 @@ commands:
       cd docs && make clean && make html
 
 channels:
-    - defaults
     - https://conda.anaconda.org/conda-forge/
+    - https://conda.anaconda.org/ae5-admin/
     - https://conda.anaconda.org/joshburt/
 
 platforms:
@@ -82,7 +82,7 @@ env_specs:
     description: Development Environment
     packages:
       - python=3.8.15
-      - mlflow=2.0.1
+      - mlflow=2.3.0
       - ipykernel
       - isort
       - black
@@ -94,4 +94,4 @@ env_specs:
       - sphinx
       - sphinx-rtd-theme
       - anaconda.enterprise.server.contracts>=0.8.3
-      - anaconda.enterprise.server.common.sdk>=0.4.8
+      - ae5-tools>=0.6.1

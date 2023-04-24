@@ -12,7 +12,6 @@ from src.anaconda.mlflow.tracking.sdk import AnacondaMlFlowClient
 
 
 class TestAnacondaMlFlowClient(unittest.TestCase):
-
     mock_counter: int = 1
 
     def setUp(self):
