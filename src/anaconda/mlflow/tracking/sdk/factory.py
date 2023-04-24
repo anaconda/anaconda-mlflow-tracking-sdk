@@ -1,7 +1,6 @@
 """ Helper factory functions """
+from ae5_tools import demand_env_var
 from mlflow import MlflowClient
-
-from anaconda.enterprise.server.common.sdk import demand_env_var
 
 
 def build_mlflow_client() -> MlflowClient:
