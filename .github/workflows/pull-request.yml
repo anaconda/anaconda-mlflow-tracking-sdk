@@ -32,7 +32,7 @@ jobs:
         fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
     - name: Install dependencies
       # https://github.com/conda-incubator/setup-miniconda
-      uses: conda-incubator/setup-miniconda@3b0f2504dd76ef23b6d31f291f4913fb60ab5ff3
+      uses: conda-incubator/setup-miniconda@7e642bb2e4ca56ff706818a0febf72bb226d348d
       with:
         channels: defaults,conda-forge,joshburt,ae5-admin
         auto-activate-base: true
