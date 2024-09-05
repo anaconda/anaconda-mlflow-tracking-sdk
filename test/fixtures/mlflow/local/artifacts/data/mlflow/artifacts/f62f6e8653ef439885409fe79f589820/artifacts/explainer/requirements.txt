@@ -1,5 +1,5 @@
 mlflow
-cffi==1.15.1
+cffi==1.17.1
 defusedxml==0.7.1
 ipython==8.7.0
 psutil==5.9.0
